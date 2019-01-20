@@ -1,0 +1,101 @@
+#!/usr/bin/env python
+# Copyright (c) 2019 Lars Bergmann
+#
+# pf_sherlock -- logfile analysis helper
+#
+# GNU GENERAL PUBLIC LICENSE
+#    Version 3, 29 June 2007
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# builtin
+import argparse
+import os
+import textwrap
+import sys
+
+# custom
+import sherlock.sherlock as sherlock
+
+
+def main(args):
+    '''
+    Run main program of pf_sherlock
+    - create sherlock instance from args and config path
+    - run main method of sherlock instance
+    '''
+    s = sherlock.Sherlock.from_args(args)
+    s.run()
+
+
+if __name__ == '__main__':
+    '''
+    Exectuable starts here
+    - check user to be root?
+    - parse arguments
+    - check arguments, especially config path, use defaults
+    - pass args to maint function
+    '''
+
+    parser = argparse.ArgumentParser(
+        prog='pf_sherlock',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description=textwrap.dedent('''
+        ---> A logfile analysis tool with super powers <---
+          Intended to simplify logfile analysis tasks by aggregating logfiles
+          defined in config.
+        '''),
+        epilog=textwrap.dedent('''
+        ---> Feel free to contact me: <---
+          Lars Bergmann <lars.bergmann@perfact.de>
+        '''),
+    )
+
+    parser.add_argument(
+        '-c',
+        '--config',
+        help='Path to config file',
+        type=str,
+        default='./tests/file_assets/example_config.py'
+    )
+
+    parser.add_argument(
+        '-f',
+        '--filter',
+        help='List of filters to apply',
+        nargs='*',
+        choices=sherlock.FILTERS.keys()
+    )
+
+    parser.add_argument(
+        '-a',
+        '--args',
+        help='List of filter arguments to apply. Must match filter list order',
+        nargs='*'
+    )
+
+    parser.add_argument(
+        '--more-help',
+        help='Get list of module variables in sherlock.py and what they are used for, then exit',
+        action='store_true',
+        default=False
+    )
+
+    args = parser.parse_args()
+
+    if args.more_help:
+        print(sherlock.show_help())
+        sys.exit(0)
+
+    main(args)

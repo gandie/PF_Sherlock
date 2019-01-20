@@ -1,0 +1,734 @@
+2010-12-09 10:52:42 CET [1062-2] LOG:  received fast shutdown request
+2012-12-09 10:52:42 CET [1062-3] LOG:  aborting any active transactions
+2018-12-09 10:52:42 CET [1156-2] LOG:  autovacuum launcher shutting down
+2018-12-09 10:52:42 CET [1153-1] LOG:  shutting down
+2018-12-09 10:52:42 CET [1153-2] LOG:  database system is shut down
+2018-12-09 12:02:05 CET [1128-1] LOG:  database system was shut down at 2018-12-09 10:52:42 CET
+2018-12-09 12:02:05 CET [1128-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-09 12:02:05 CET [1132-1] LOG:  autovacuum launcher started
+2018-12-09 12:02:05 CET [1085-1] LOG:  database system is ready to accept connections
+2018-12-09 12:02:06 CET [1160-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-09 12:27:16 CET [1085-2] LOG:  received fast shutdown request
+2018-12-09 12:27:16 CET [1085-3] LOG:  aborting any active transactions
+2018-12-09 12:27:16 CET [1132-2] LOG:  autovacuum launcher shutting down
+2018-12-09 12:27:16 CET [1129-1] LOG:  shutting down
+2018-12-09 12:27:16 CET [1129-2] LOG:  database system is shut down
+2018-12-09 13:35:22 CET [1114-1] LOG:  database system was shut down at 2018-12-09 12:27:16 CET
+2018-12-09 13:35:22 CET [1114-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-09 13:35:22 CET [1118-1] LOG:  autovacuum launcher started
+2018-12-09 13:35:22 CET [1113-1] LOG:  database system is ready to accept connections
+2018-12-09 13:35:23 CET [1164-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-09 15:03:41 CET [1113-2] LOG:  received fast shutdown request
+2018-12-09 15:03:41 CET [1113-3] LOG:  aborting any active transactions
+2018-12-09 15:03:41 CET [1118-2] LOG:  autovacuum launcher shutting down
+2018-12-09 15:03:41 CET [1115-1] LOG:  shutting down
+2018-12-09 15:03:41 CET [1115-2] LOG:  database system is shut down
+2018-12-09 16:30:54 CET [1158-1] LOG:  database system was shut down at 2018-12-09 15:03:41 CET
+2018-12-09 16:30:54 CET [1158-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-09 16:30:54 CET [1105-1] LOG:  database system is ready to accept connections
+2018-12-09 16:30:54 CET [1162-1] LOG:  autovacuum launcher started
+2018-12-09 16:30:55 CET [1196-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-12 03:59:36 CET [1105-2] LOG:  received fast shutdown request
+2018-12-12 03:59:36 CET [1105-3] LOG:  aborting any active transactions
+2018-12-12 03:59:36 CET [1162-2] LOG:  autovacuum launcher shutting down
+2018-12-12 03:59:36 CET [1159-1] LOG:  shutting down
+2018-12-12 03:59:36 CET [1159-2] LOG:  database system is shut down
+2018-12-12 16:12:24 CET [1181-1] LOG:  database system was shut down at 2018-12-12 03:59:36 CET
+2018-12-12 16:12:25 CET [1181-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-12 16:12:25 CET [1185-1] LOG:  autovacuum launcher started
+2018-12-12 16:12:25 CET [1165-1] LOG:  database system is ready to accept connections
+2018-12-12 16:12:25 CET [1212-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-04 19:39:28 CET [1141-2] LOG:  received fast shutdown request
+2018-12-04 19:39:28 CET [1141-3] LOG:  aborting any active transactions
+2018-12-04 19:39:28 CET [1161-2] LOG:  autovacuum launcher shutting down
+2018-12-04 19:39:28 CET [1158-1] LOG:  shutting down
+2018-12-04 19:39:28 CET [1158-2] LOG:  database system is shut down
+2018-12-04 19:45:04 CET [1121-1] LOG:  database system was shut down at 2018-12-04 19:39:28 CET
+2018-12-04 19:45:04 CET [1121-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-04 19:45:04 CET [1130-1] LOG:  autovacuum launcher started
+2018-12-04 19:45:04 CET [1115-1] LOG:  database system is ready to accept connections
+2018-12-04 19:45:05 CET [1164-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-04 19:46:23 CET [1115-2] LOG:  received fast shutdown request
+2018-12-04 19:46:23 CET [1115-3] LOG:  aborting any active transactions
+2018-12-04 19:46:23 CET [1130-2] LOG:  autovacuum launcher shutting down
+2018-12-04 19:46:23 CET [1127-1] LOG:  shutting down
+2018-12-04 19:46:23 CET [1127-2] LOG:  database system is shut down
+2018-12-05 01:53:15 CET [1122-1] LOG:  database system was shut down at 2018-12-04 19:46:23 CET
+2018-12-05 01:53:15 CET [1122-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-05 01:53:15 CET [1132-1] LOG:  autovacuum launcher started
+2018-12-05 01:53:15 CET [1099-1] LOG:  database system is ready to accept connections
+2018-12-05 01:53:16 CET [1157-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-05 22:18:21 CET [1099-2] LOG:  received fast shutdown request
+2018-12-05 22:18:21 CET [1099-3] LOG:  aborting any active transactions
+2018-12-05 22:18:21 CET [1132-2] LOG:  autovacuum launcher shutting down
+2018-12-05 22:18:21 CET [1129-1] LOG:  shutting down
+2018-12-05 22:18:21 CET [1129-2] LOG:  database system is shut down
+2018-12-05 22:23:10 CET [1141-1] LOG:  database system was shut down at 2018-12-05 22:18:21 CET
+2018-12-05 22:23:10 CET [1141-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-05 22:23:10 CET [1145-1] LOG:  autovacuum launcher started
+2018-12-05 22:23:10 CET [1135-1] LOG:  database system is ready to accept connections
+2018-12-05 22:23:11 CET [1174-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-06 19:56:09 CET [1135-2] LOG:  received fast shutdown request
+2018-12-06 19:56:09 CET [1135-3] LOG:  aborting any active transactions
+2018-12-06 19:56:09 CET [1145-2] LOG:  autovacuum launcher shutting down
+2018-12-06 19:56:09 CET [1142-1] LOG:  shutting down
+2018-12-06 19:56:09 CET [1142-2] LOG:  database system is shut down
+2018-12-06 19:59:51 CET [1160-1] LOG:  database system was shut down at 2018-12-06 19:56:09 CET
+2018-12-06 19:59:51 CET [1160-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-06 19:59:51 CET [1145-1] LOG:  database system is ready to accept connections
+2018-12-06 19:59:51 CET [1170-1] LOG:  autovacuum launcher started
+2018-12-06 19:59:52 CET [1199-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-06 20:17:59 CET [1145-2] LOG:  received fast shutdown request
+2018-12-06 20:17:59 CET [1145-3] LOG:  aborting any active transactions
+2018-12-06 20:17:59 CET [1170-2] LOG:  autovacuum launcher shutting down
+2018-12-06 20:17:59 CET [1167-1] LOG:  shutting down
+2018-12-06 20:17:59 CET [1167-2] LOG:  database system is shut down
+2018-12-06 20:25:42 CET [1151-1] LOG:  database system was shut down at 2018-12-06 20:17:59 CET
+2018-12-06 20:25:42 CET [1151-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-06 20:25:42 CET [1156-1] LOG:  autovacuum launcher started
+2018-12-06 20:25:42 CET [1062-1] LOG:  database system is ready to accept connections
+2018-12-06 20:25:43 CET [1188-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-26 19:33:14 CET [1106-2] LOG:  received fast shutdown request
+2018-11-26 19:33:14 CET [1106-3] LOG:  aborting any active transactions
+2018-11-26 19:33:14 CET [1168-2] LOG:  autovacuum launcher shutting down
+2018-11-26 19:33:14 CET [1165-1] LOG:  shutting down
+2018-11-26 19:33:14 CET [1165-2] LOG:  database system is shut down
+2018-11-26 19:33:38 CET [1153-1] LOG:  database system was shut down at 2018-11-26 19:33:14 CET
+2018-11-26 19:33:38 CET [1153-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-26 19:33:38 CET [1161-1] LOG:  autovacuum launcher started
+2018-11-26 19:33:38 CET [1141-1] LOG:  database system is ready to accept connections
+2018-11-26 19:33:38 CET [1191-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-23 00:01:43 CET [1147-2] LOG:  received fast shutdown request
+2018-11-23 00:01:43 CET [1147-3] LOG:  aborting any active transactions
+2018-11-23 00:01:43 CET [1152-2] LOG:  autovacuum launcher shutting down
+2018-11-23 00:01:43 CET [1149-1] LOG:  shutting down
+2018-11-23 00:01:43 CET [1149-2] LOG:  database system is shut down
+2018-11-23 00:12:28 CET [1156-1] LOG:  database system was shut down at 2018-11-23 00:01:43 CET
+2018-11-23 00:12:28 CET [1156-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-23 00:12:28 CET [1168-1] LOG:  autovacuum launcher started
+2018-11-23 00:12:28 CET [1106-1] LOG:  database system is ready to accept connections
+2018-11-23 00:12:28 CET [1201-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-17 10:21:01 CET [1168-2] LOG:  received fast shutdown request
+2018-11-17 10:21:01 CET [1168-3] LOG:  aborting any active transactions
+2018-11-17 10:21:01 CET [1175-2] LOG:  autovacuum launcher shutting down
+2018-11-17 10:21:01 CET [1172-1] LOG:  shutting down
+2018-11-17 10:21:01 CET [1172-2] LOG:  database system is shut down
+2018-11-17 17:48:19 CET [1122-1] LOG:  database system was shut down at 2018-11-17 10:21:01 CET
+2018-11-17 17:48:19 CET [1122-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-17 17:48:19 CET [1126-1] LOG:  autovacuum launcher started
+2018-11-17 17:48:19 CET [1121-1] LOG:  database system is ready to accept connections
+2018-11-17 17:48:20 CET [1165-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-17 18:05:28 CET [1121-2] LOG:  received fast shutdown request
+2018-11-17 18:05:28 CET [1121-3] LOG:  aborting any active transactions
+2018-11-17 18:05:28 CET [1126-2] LOG:  autovacuum launcher shutting down
+2018-11-17 18:05:28 CET [1123-1] LOG:  shutting down
+2018-11-17 18:05:28 CET [1123-2] LOG:  database system is shut down
+2018-11-17 18:07:19 CET [1148-1] LOG:  database system was shut down at 2018-11-17 18:05:28 CET
+2018-11-17 18:07:19 CET [1148-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-17 18:07:19 CET [1147-1] LOG:  database system is ready to accept connections
+2018-11-17 18:07:19 CET [1152-1] LOG:  autovacuum launcher started
+2018-11-17 18:07:20 CET [1178-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-08 19:39:07 CET [1136-1] LOG:  database system was interrupted; last known up at 2018-11-01 12:08:10 CET
+2018-11-08 19:39:07 CET [1136-2] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-08 19:39:07 CET [1136-3] LOG:  invalid record length at 10/52898E0
+2018-11-08 19:39:07 CET [1136-4] LOG:  redo is not required
+2018-11-08 19:39:07 CET [1136-5] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-08 19:39:07 CET [1170-1] LOG:  autovacuum launcher started
+2018-11-08 19:39:07 CET [1097-1] LOG:  database system is ready to accept connections
+2018-11-08 19:39:08 CET [1185-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-09 20:28:30 CET [1097-2] LOG:  received fast shutdown request
+2018-11-09 20:28:30 CET [1097-3] LOG:  aborting any active transactions
+2018-11-09 20:28:30 CET [1170-2] LOG:  autovacuum launcher shutting down
+2018-11-09 20:28:30 CET [1167-1] LOG:  shutting down
+2018-11-09 20:28:30 CET [1167-2] LOG:  database system is shut down
+2018-11-09 21:46:28 CET [1171-1] LOG:  database system was shut down at 2018-11-09 20:28:30 CET
+2018-11-09 21:46:28 CET [1171-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-09 21:46:28 CET [1168-1] LOG:  database system is ready to accept connections
+2018-11-09 21:46:28 CET [1175-1] LOG:  autovacuum launcher started
+2018-11-09 21:46:29 CET [1208-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-01 10:36:47 CET [1126-2] LOG:  received fast shutdown request
+2018-11-01 10:36:47 CET [1126-3] LOG:  aborting any active transactions
+2018-11-01 10:36:47 CET [1168-2] LOG:  autovacuum launcher shutting down
+2018-11-01 10:36:47 CET [1165-1] LOG:  shutting down
+2018-11-01 10:36:47 CET [1165-2] LOG:  database system is shut down
+2018-11-01 12:08:10 CET [1130-1] LOG:  database system was shut down at 2018-11-01 10:36:47 CET
+2018-11-01 12:08:10 CET [1130-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-01 12:08:10 CET [1136-1] LOG:  autovacuum launcher started
+2018-11-01 12:08:10 CET [1122-1] LOG:  database system is ready to accept connections
+2018-11-01 12:08:11 CET [1173-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-09 10:52:42 CET [1062-2] LOG:  received fast shutdown request
+2018-12-09 10:52:42 CET [1062-3] LOG:  aborting any active transactions
+2018-12-09 10:52:42 CET [1156-2] LOG:  autovacuum launcher shutting down
+2018-12-09 10:52:42 CET [1153-1] LOG:  shutting down
+2018-12-09 10:52:42 CET [1153-2] LOG:  database system is shut down
+2018-12-09 12:02:05 CET [1128-1] LOG:  database system was shut down at 2018-12-09 10:52:42 CET
+2018-12-09 12:02:05 CET [1128-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-09 12:02:05 CET [1132-1] LOG:  autovacuum launcher started
+2018-12-09 12:02:05 CET [1085-1] LOG:  database system is ready to accept connections
+2018-12-09 12:02:06 CET [1160-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-09 12:27:16 CET [1085-2] LOG:  received fast shutdown request
+2018-12-09 12:27:16 CET [1085-3] LOG:  aborting any active transactions
+2018-12-09 12:27:16 CET [1132-2] LOG:  autovacuum launcher shutting down
+2018-12-09 12:27:16 CET [1129-1] LOG:  shutting down
+2018-12-09 12:27:16 CET [1129-2] LOG:  database system is shut down
+2018-12-09 13:35:22 CET [1114-1] LOG:  database system was shut down at 2018-12-09 12:27:16 CET
+2018-12-09 13:35:22 CET [1114-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-09 13:35:22 CET [1118-1] LOG:  autovacuum launcher started
+2018-12-09 13:35:22 CET [1113-1] LOG:  database system is ready to accept connections
+2018-12-09 13:35:23 CET [1164-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-09 15:03:41 CET [1113-2] LOG:  received fast shutdown request
+2018-12-09 15:03:41 CET [1113-3] LOG:  aborting any active transactions
+2018-12-09 15:03:41 CET [1118-2] LOG:  autovacuum launcher shutting down
+2018-12-09 15:03:41 CET [1115-1] LOG:  shutting down
+2018-12-09 15:03:41 CET [1115-2] LOG:  database system is shut down
+2018-12-09 16:30:54 CET [1158-1] LOG:  database system was shut down at 2018-12-09 15:03:41 CET
+2018-12-09 16:30:54 CET [1158-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-09 16:30:54 CET [1105-1] LOG:  database system is ready to accept connections
+2018-12-09 16:30:54 CET [1162-1] LOG:  autovacuum launcher started
+2018-12-09 16:30:55 CET [1196-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-12 03:59:36 CET [1105-2] LOG:  received fast shutdown request
+2018-12-12 03:59:36 CET [1105-3] LOG:  aborting any active transactions
+2018-12-12 03:59:36 CET [1162-2] LOG:  autovacuum launcher shutting down
+2018-12-12 03:59:36 CET [1159-1] LOG:  shutting down
+2018-12-12 03:59:36 CET [1159-2] LOG:  database system is shut down
+2018-12-12 16:12:24 CET [1181-1] LOG:  database system was shut down at 2018-12-12 03:59:36 CET
+2018-12-12 16:12:25 CET [1181-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-12 16:12:25 CET [1185-1] LOG:  autovacuum launcher started
+2018-12-12 16:12:25 CET [1165-1] LOG:  database system is ready to accept connections
+2018-12-12 16:12:25 CET [1212-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-04 19:39:28 CET [1141-2] LOG:  received fast shutdown request
+2018-12-04 19:39:28 CET [1141-3] LOG:  aborting any active transactions
+2018-12-04 19:39:28 CET [1161-2] LOG:  autovacuum launcher shutting down
+2018-12-04 19:39:28 CET [1158-1] LOG:  shutting down
+2018-12-04 19:39:28 CET [1158-2] LOG:  database system is shut down
+2018-12-04 19:45:04 CET [1121-1] LOG:  database system was shut down at 2018-12-04 19:39:28 CET
+2018-12-04 19:45:04 CET [1121-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-04 19:45:04 CET [1130-1] LOG:  autovacuum launcher started
+2018-12-04 19:45:04 CET [1115-1] LOG:  database system is ready to accept connections
+2018-12-04 19:45:05 CET [1164-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-04 19:46:23 CET [1115-2] LOG:  received fast shutdown request
+2018-12-04 19:46:23 CET [1115-3] LOG:  aborting any active transactions
+2018-12-04 19:46:23 CET [1130-2] LOG:  autovacuum launcher shutting down
+2018-12-04 19:46:23 CET [1127-1] LOG:  shutting down
+2018-12-04 19:46:23 CET [1127-2] LOG:  database system is shut down
+2018-12-05 01:53:15 CET [1122-1] LOG:  database system was shut down at 2018-12-04 19:46:23 CET
+2018-12-05 01:53:15 CET [1122-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-05 01:53:15 CET [1132-1] LOG:  autovacuum launcher started
+2018-12-05 01:53:15 CET [1099-1] LOG:  database system is ready to accept connections
+2018-12-05 01:53:16 CET [1157-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-05 22:18:21 CET [1099-2] LOG:  received fast shutdown request
+2018-12-05 22:18:21 CET [1099-3] LOG:  aborting any active transactions
+2018-12-05 22:18:21 CET [1132-2] LOG:  autovacuum launcher shutting down
+2018-12-05 22:18:21 CET [1129-1] LOG:  shutting down
+2018-12-05 22:18:21 CET [1129-2] LOG:  database system is shut down
+2018-12-05 22:23:10 CET [1141-1] LOG:  database system was shut down at 2018-12-05 22:18:21 CET
+2018-12-05 22:23:10 CET [1141-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-05 22:23:10 CET [1145-1] LOG:  autovacuum launcher started
+2018-12-05 22:23:10 CET [1135-1] LOG:  database system is ready to accept connections
+2018-12-05 22:23:11 CET [1174-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-06 19:56:09 CET [1135-2] LOG:  received fast shutdown request
+2018-12-06 19:56:09 CET [1135-3] LOG:  aborting any active transactions
+2018-12-06 19:56:09 CET [1145-2] LOG:  autovacuum launcher shutting down
+2018-12-06 19:56:09 CET [1142-1] LOG:  shutting down
+2018-12-06 19:56:09 CET [1142-2] LOG:  database system is shut down
+2018-12-06 19:59:51 CET [1160-1] LOG:  database system was shut down at 2018-12-06 19:56:09 CET
+2018-12-06 19:59:51 CET [1160-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-06 19:59:51 CET [1145-1] LOG:  database system is ready to accept connections
+2018-12-06 19:59:51 CET [1170-1] LOG:  autovacuum launcher started
+2018-12-06 19:59:52 CET [1199-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-12-06 20:17:59 CET [1145-2] LOG:  received fast shutdown request
+2018-12-06 20:17:59 CET [1145-3] LOG:  aborting any active transactions
+2018-12-06 20:17:59 CET [1170-2] LOG:  autovacuum launcher shutting down
+2018-12-06 20:17:59 CET [1167-1] LOG:  shutting down
+2018-12-06 20:17:59 CET [1167-2] LOG:  database system is shut down
+2018-12-06 20:25:42 CET [1151-1] LOG:  database system was shut down at 2018-12-06 20:17:59 CET
+2018-12-06 20:25:42 CET [1151-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-12-06 20:25:42 CET [1156-1] LOG:  autovacuum launcher started
+2018-12-06 20:25:42 CET [1062-1] LOG:  database system is ready to accept connections
+2018-12-06 20:25:43 CET [1188-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-26 19:33:14 CET [1106-2] LOG:  received fast shutdown request
+2018-11-26 19:33:14 CET [1106-3] LOG:  aborting any active transactions
+2018-11-26 19:33:14 CET [1168-2] LOG:  autovacuum launcher shutting down
+2018-11-26 19:33:14 CET [1165-1] LOG:  shutting down
+2018-11-26 19:33:14 CET [1165-2] LOG:  database system is shut down
+2018-11-26 19:33:38 CET [1153-1] LOG:  database system was shut down at 2018-11-26 19:33:14 CET
+2018-11-26 19:33:38 CET [1153-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-26 19:33:38 CET [1161-1] LOG:  autovacuum launcher started
+2018-11-26 19:33:38 CET [1141-1] LOG:  database system is ready to accept connections
+2018-11-26 19:33:38 CET [1191-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-23 00:01:43 CET [1147-2] LOG:  received fast shutdown request
+2018-11-23 00:01:43 CET [1147-3] LOG:  aborting any active transactions
+2018-11-23 00:01:43 CET [1152-2] LOG:  autovacuum launcher shutting down
+2018-11-23 00:01:43 CET [1149-1] LOG:  shutting down
+2018-11-23 00:01:43 CET [1149-2] LOG:  database system is shut down
+2018-11-23 00:12:28 CET [1156-1] LOG:  database system was shut down at 2018-11-23 00:01:43 CET
+2018-11-23 00:12:28 CET [1156-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-23 00:12:28 CET [1168-1] LOG:  autovacuum launcher started
+2018-11-23 00:12:28 CET [1106-1] LOG:  database system is ready to accept connections
+2018-11-23 00:12:28 CET [1201-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-17 10:21:01 CET [1168-2] LOG:  received fast shutdown request
+2018-11-17 10:21:01 CET [1168-3] LOG:  aborting any active transactions
+2018-11-17 10:21:01 CET [1175-2] LOG:  autovacuum launcher shutting down
+2018-11-17 10:21:01 CET [1172-1] LOG:  shutting down
+2018-11-17 10:21:01 CET [1172-2] LOG:  database system is shut down
+2018-11-17 17:48:19 CET [1122-1] LOG:  database system was shut down at 2018-11-17 10:21:01 CET
+2018-11-17 17:48:19 CET [1122-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-17 17:48:19 CET [1126-1] LOG:  autovacuum launcher started
+2018-11-17 17:48:19 CET [1121-1] LOG:  database system is ready to accept connections
+2018-11-17 17:48:20 CET [1165-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-17 18:05:28 CET [1121-2] LOG:  received fast shutdown request
+2018-11-17 18:05:28 CET [1121-3] LOG:  aborting any active transactions
+2018-11-17 18:05:28 CET [1126-2] LOG:  autovacuum launcher shutting down
+2018-11-17 18:05:28 CET [1123-1] LOG:  shutting down
+2018-11-17 18:05:28 CET [1123-2] LOG:  database system is shut down
+2018-11-17 18:07:19 CET [1148-1] LOG:  database system was shut down at 2018-11-17 18:05:28 CET
+2018-11-17 18:07:19 CET [1148-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-17 18:07:19 CET [1147-1] LOG:  database system is ready to accept connections
+2018-11-17 18:07:19 CET [1152-1] LOG:  autovacuum launcher started
+2018-11-17 18:07:20 CET [1178-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-08 19:39:07 CET [1136-1] LOG:  database system was interrupted; last known up at 2018-11-01 12:08:10 CET
+2018-11-08 19:39:07 CET [1136-2] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-08 19:39:07 CET [1136-3] LOG:  invalid record length at 10/52898E0
+2018-11-08 19:39:07 CET [1136-4] LOG:  redo is not required
+2018-11-08 19:39:07 CET [1136-5] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-08 19:39:07 CET [1170-1] LOG:  autovacuum launcher started
+2018-11-08 19:39:07 CET [1097-1] LOG:  database system is ready to accept connections
+2018-11-08 19:39:08 CET [1185-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-09 20:28:30 CET [1097-2] LOG:  received fast shutdown request
+2018-11-09 20:28:30 CET [1097-3] LOG:  aborting any active transactions
+2018-11-09 20:28:30 CET [1170-2] LOG:  autovacuum launcher shutting down
+2018-11-09 20:28:30 CET [1167-1] LOG:  shutting down
+2018-11-09 20:28:30 CET [1167-2] LOG:  database system is shut down
+2018-11-09 21:46:28 CET [1171-1] LOG:  database system was shut down at 2018-11-09 20:28:30 CET
+2018-11-09 21:46:28 CET [1171-2] LOG:  MultiXact member wraparound protections are now enabled
+2019-11-09 21:46:28 CET [1168-1] LOG:  database system is ready to accept connections
+2018-11-09 21:46:28 CET [1175-1] LOG:  autovacuum launcher started
+2018-11-09 21:46:29 CET [1208-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-11-01 10:36:47 CET [1126-2] LOG:  received fast shutdown request
+2018-11-01 10:36:47 CET [1126-3] LOG:  aborting any active transactions
+2018-11-01 10:36:47 CET [1168-2] LOG:  autovacuum launcher shutting down
+2018-11-01 10:36:47 CET [1165-1] LOG:  shutting down
+2018-11-01 10:36:47 CET [1165-2] LOG:  database system is shut down
+2018-11-01 12:08:10 CET [1130-1] LOG:  database system was shut down at 2018-11-01 10:36:47 CET
+2018-11-01 12:08:10 CET [1130-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-11-01 12:08:10 CET [1136-1] LOG:  autovacuum launcher started
+2018-11-01 12:08:10 CET [1122-1] LOG:  database system is ready to accept connections
+2018-11-01 12:08:11 CET [1173-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-21 19:54:06 CEST [17872-1] lars@lars_test ERROR:  column "image_filename" does not exist at character 10
+2018-10-21 19:54:06 CEST [17872-2] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime
+
+	where
+	image_id = 15
+
+2018-10-21 19:58:58 CEST [17872-3] lars@lars_test ERROR:  syntax error at or near "select" at character 87
+2018-10-21 19:58:58 CEST [17872-4] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  string_agg(select keyword_name from keyword join imagexkeyword on imagexkeyword_image_id = image_id, ',')
+	from
+	  image
+
+	where
+	image_id = 12
+
+2018-10-21 20:00:30 CEST [17872-5] lars@lars_test ERROR:  syntax error at or near "select" at character 87
+2018-10-21 20:00:30 CEST [17872-6] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  string_agg(select keyword_name from keyword join imagexkeyword on imagexkeyword_image_id = image_id, ","::text)
+	from
+	  image
+
+	where
+	image_id = 12
+
+2018-10-21 20:02:34 CEST [17872-7] lars@lars_test ERROR:  function string_agg(character varying) does not exist at character 76
+2018-10-21 20:02:34 CEST [17872-8] lars@lars_test HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2018-10-21 20:02:34 CEST [17872-9] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  string_agg(keyword_name)
+	from
+	  image
+
+	left join imagexkeyword
+	       on imagexkeyword_image_id = image_id
+
+	left join keyword
+	       on keyword_id = imagexkeyword_keyword_id
+
+	where
+	image_id = 12
+
+	group by image_id
+2018-10-21 20:08:05 CEST [17872-10] lars@lars_test ERROR:  syntax error at or near "from" at character 162
+2018-10-21 20:08:05 CEST [17872-11] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  string_agg(keyword_name, ',') as keywords,
+	  string_agg(person_name, ',') as persons,
+	from
+	  image
+
+	left join imagexkeyword
+	       on imagexkeyword_image_id = image_id
+
+	left join keyword
+	       on keyword_id = imagexkeyword_keyword_id
+
+	left join facebox
+	       on facebox_image_id = image_id
+
+	left join personxfacebox
+	       on personxfacebox_facebox_id = facebox_id
+
+	left join person
+	       on person_id = personxfacebox_person_id
+
+	where
+	image_id = 18495
+
+	group by image_id
+2018-10-21 20:14:54 CEST [17872-12] lars@lars_test ERROR:  column "person_name" does not exist at character 92
+2018-10-21 20:14:54 CEST [17872-13] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  keyword_name,
+	  person_name
+	from
+	  image
+
+	left join imagexkeyword
+	       on imagexkeyword_image_id = image_id
+
+	left join keyword
+	       on keyword_id = imagexkeyword_keyword_id
+
+
+	where
+	image_id = 18495
+
+2018-10-21 20:15:05 CEST [17872-14] lars@lars_test ERROR:  column "person_name" does not exist at character 92
+2018-10-21 20:15:05 CEST [17872-15] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  keyword_name,
+	  person_name
+	from
+	  image
+
+	left join imagexkeyword
+	       on imagexkeyword_image_id = image_id
+
+	left join keyword
+	       on keyword_id = imagexkeyword_keyword_id
+
+
+	where
+	image_id = 18495
+
+2018-10-21 20:19:25 CEST [17872-16] lars@lars_test ERROR:  table name "keyword" specified more than once
+2018-10-21 20:19:25 CEST [17872-17] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  (
+	    select string_agg(keyword_name, ',') from keyword
+	       left join imagexkeyword
+	              on imagexkeyword_image_id = image_id
+
+	       left join keyword
+	              on keyword_id = imagexkeyword_keyword_id
+	  ) as keywords
+	from
+	  image
+
+
+
+
+	where
+	image_id = 18495
+
+2018-10-21 20:23:46 CEST [17872-18] lars@lars_test ERROR:  more than one row returned by a subquery used as an expression
+2018-10-21 20:23:46 CEST [17872-19] lars@lars_test STATEMENT:  select
+	  image_filename,
+	  image_capturetime::text as image_capturetime,
+	  (
+	    select string_agg(keyword_name, ',') from image
+	       left join imagexkeyword
+	              on imagexkeyword_image_id = image_id
+
+	       left join keyword
+	              on keyword_id = imagexkeyword_keyword_id
+
+	       where
+	image_id = 18495
+	  ) as keywords,
+	  (
+	    select string_agg(person_name, ',') from image
+	       left join facebox
+	              on facebox_image_id = image_id
+
+	       left join personxfacebox
+	              on personxfacebox_facebox_id = facebox_id
+
+	       left join person
+	              on person_id = personxfacebox_person_id
+
+	       where
+	image_id = 18495
+	       group by person_name
+	  ) as persons
+
+
+	from
+	  image
+
+
+
+
+	where
+	image_id = 18495
+
+2018-10-22 18:18:18 CEST [3591-1] lars@lars_test ERROR:  syntax error at or near "justdie" at character 527
+2018-10-22 18:18:18 CEST [3591-2] lars@lars_test STATEMENT:  select
+	  image_id,
+	  image_filename,
+	  extract('year' from image_capturetime)::text as image_year
+	from
+	  image
+
+	join imagexkeyword
+	  on imagexkeyword_image_id = image_id
+
+	join keyword
+	  on keyword_id = imagexkeyword_keyword_id
+
+	left join facebox
+	       on facebox_image_id = image_id
+
+	left join personxfacebox
+	       on personxfacebox_facebox_id = facebox_id
+
+	left join person
+	       on person_id = personxfacebox_person_id
+
+	--where
+	where
+	keyword_name in ('usa', 'feier')
+	group by image_id
+	order by image_filename
+
+	limit 1000
+	justdie
+2018-10-22 18:19:03 CEST [3591-3] lars@lars_test ERROR:  syntax error at or near "justdie" at character 527
+2018-10-22 18:19:03 CEST [3591-4] lars@lars_test STATEMENT:  select
+	  image_id,
+	  image_filename,
+	  extract('year' from image_capturetime)::text as image_year
+	from
+	  image
+
+	join imagexkeyword
+	  on imagexkeyword_image_id = image_id
+
+	join keyword
+	  on keyword_id = imagexkeyword_keyword_id
+
+	left join facebox
+	       on facebox_image_id = image_id
+
+	left join personxfacebox
+	       on personxfacebox_facebox_id = facebox_id
+
+	left join person
+	       on person_id = personxfacebox_person_id
+
+	--where
+	where
+	keyword_name in ('USA', 'Feier')
+	group by image_id
+	order by image_filename
+
+	limit 1000
+	justdie
+2018-10-22 19:33:24 CEST [1122-2] LOG:  received fast shutdown request
+2018-10-22 19:33:24 CEST [1122-3] LOG:  aborting any active transactions
+2018-10-22 19:33:24 CEST [1160-2] LOG:  autovacuum launcher shutting down
+2018-10-22 19:33:24 CEST [1157-1] LOG:  shutting down
+2018-10-22 19:33:24 CEST [1157-2] LOG:  database system is shut down
+2018-10-22 19:41:56 CEST [1159-1] LOG:  database system was shut down at 2018-10-22 19:33:24 CEST
+2018-10-22 19:41:56 CEST [1159-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-22 19:41:56 CEST [1103-1] LOG:  database system is ready to accept connections
+2018-10-22 19:41:56 CEST [1167-1] LOG:  autovacuum launcher started
+2018-10-22 19:41:57 CEST [1190-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-22 20:57:51 CEST [1103-2] LOG:  received fast shutdown request
+2018-10-22 20:57:51 CEST [1103-3] LOG:  aborting any active transactions
+2018-10-22 20:57:51 CEST [1167-2] LOG:  autovacuum launcher shutting down
+2018-10-22 20:57:51 CEST [1164-1] LOG:  shutting down
+2018-10-22 20:57:51 CEST [1164-2] LOG:  database system is shut down
+2018-10-22 21:07:35 CEST [1130-1] LOG:  database system was shut down at 2018-10-22 20:57:51 CEST
+2018-10-22 21:07:35 CEST [1130-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-22 21:07:35 CEST [1134-1] LOG:  autovacuum launcher started
+2018-10-22 21:07:35 CEST [1127-1] LOG:  database system is ready to accept connections
+2018-10-22 21:07:35 CEST [1171-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-23 08:35:21 CEST [1127-2] LOG:  received fast shutdown request
+2018-10-23 08:35:21 CEST [1127-3] LOG:  aborting any active transactions
+2018-10-23 08:35:21 CEST [1134-2] LOG:  autovacuum launcher shutting down
+2018-10-23 08:35:21 CEST [1131-1] LOG:  shutting down
+2018-10-23 08:35:21 CEST [1131-2] LOG:  database system is shut down
+2018-10-23 17:32:12 CEST [1164-1] LOG:  database system was shut down at 2018-10-23 08:35:21 CEST
+2018-10-23 17:32:12 CEST [1164-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-23 17:32:12 CEST [1168-1] LOG:  autovacuum launcher started
+2018-10-23 17:32:12 CEST [1126-1] LOG:  database system is ready to accept connections
+2018-10-23 17:32:13 CEST [1205-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-16 08:30:34 CEST [1133-2] LOG:  received fast shutdown request
+2018-10-16 08:30:34 CEST [1133-3] LOG:  aborting any active transactions
+2018-10-16 08:30:34 CEST [1157-2] LOG:  autovacuum launcher shutting down
+2018-10-16 08:30:34 CEST [1154-1] LOG:  shutting down
+2018-10-16 08:30:34 CEST [1154-2] LOG:  database system is shut down
+2018-10-16 18:12:50 CEST [1143-1] LOG:  database system was shut down at 2018-10-16 08:30:34 CEST
+2018-10-16 18:12:50 CEST [1143-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-16 18:12:50 CEST [1147-1] LOG:  autovacuum launcher started
+2018-10-16 18:12:50 CEST [1127-1] LOG:  database system is ready to accept connections
+2018-10-16 18:12:51 CEST [1184-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-17 08:35:03 CEST [1127-2] LOG:  received fast shutdown request
+2018-10-17 08:35:03 CEST [1127-3] LOG:  aborting any active transactions
+2018-10-17 08:35:03 CEST [1147-2] LOG:  autovacuum launcher shutting down
+2018-10-17 08:35:03 CEST [1144-1] LOG:  shutting down
+2018-10-17 08:35:03 CEST [1144-2] LOG:  database system is shut down
+2018-10-17 18:48:33 CEST [1142-1] LOG:  database system was shut down at 2018-10-17 08:35:03 CEST
+2018-10-17 18:48:33 CEST [1142-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-17 18:48:33 CEST [1151-1] LOG:  autovacuum launcher started
+2018-10-17 18:48:33 CEST [1140-1] LOG:  database system is ready to accept connections
+2018-10-17 18:48:34 CEST [1171-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-18 08:31:15 CEST [1140-2] LOG:  received fast shutdown request
+2018-10-18 08:31:15 CEST [1140-3] LOG:  aborting any active transactions
+2018-10-18 08:31:15 CEST [1151-2] LOG:  autovacuum launcher shutting down
+2018-10-18 08:31:15 CEST [1148-1] LOG:  shutting down
+2018-10-18 08:31:15 CEST [1148-2] LOG:  database system is shut down
+2018-10-18 18:10:23 CEST [1148-1] LOG:  database system was shut down at 2018-10-18 08:31:15 CEST
+2018-10-18 18:10:23 CEST [1148-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-18 18:10:23 CEST [1146-1] LOG:  database system is ready to accept connections
+2018-10-18 18:10:23 CEST [1152-1] LOG:  autovacuum launcher started
+2018-10-18 18:10:24 CEST [1178-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-19 20:14:09 CEST [29992-1] lars@lars_test ERROR:  relation "keywords" does not exist at character 15
+2018-10-19 20:14:09 CEST [29992-2] lars@lars_test STATEMENT:  select * from keywords
+2018-10-19 20:28:05 CEST [30366-1] lars@lars_test ERROR:  invalid input syntax for type boolean: "italien" at character 29
+2018-10-19 20:28:05 CEST [30366-2] lars@lars_test STATEMENT:  select * from keyword where 'italien';
+2018-10-19 20:49:30 CEST [31338-1] lars@lars_test ERROR:  prepared transactions are disabled
+2018-10-19 20:49:30 CEST [31338-2] lars@lars_test HINT:  Set max_prepared_transactions to a nonzero value.
+2018-10-19 20:49:30 CEST [31338-3] lars@lars_test STATEMENT:  PREPARE TRANSACTION '1_MTQwNTg5OTQzMDU2MTI4_L1BzeWNvcGcyX2RhdGFiYXNlX2Nvbm5lY3Rpb24='
+2018-10-19 20:49:30 CEST [31338-4] lars@lars_test WARNING:  there is no transaction in progress
+2018-10-19 20:51:13 CEST [1146-2] LOG:  received fast shutdown request
+2018-10-19 20:51:13 CEST [1146-3] LOG:  aborting any active transactions
+2018-10-19 20:51:13 CEST [1152-2] LOG:  autovacuum launcher shutting down
+2018-10-19 20:51:13 CEST [1149-1] LOG:  shutting down
+2018-10-19 20:51:13 CEST [1149-2] LOG:  database system is shut down
+2018-10-19 20:51:14 CEST [31650-1] LOG:  database system was shut down at 2018-10-19 20:51:13 CEST
+2018-10-19 20:51:14 CEST [31650-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-19 20:51:14 CEST [31654-1] LOG:  autovacuum launcher started
+2018-10-19 20:51:14 CEST [31649-1] LOG:  database system is ready to accept connections
+2018-10-19 20:51:14 CEST [31656-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-19 20:51:37 CEST [31649-2] LOG:  received fast shutdown request
+2018-10-19 20:51:37 CEST [31649-3] LOG:  aborting any active transactions
+2018-10-19 20:51:37 CEST [31654-2] LOG:  autovacuum launcher shutting down
+2018-10-19 20:51:37 CEST [31651-1] LOG:  shutting down
+2018-10-19 20:51:37 CEST [31651-2] LOG:  database system is shut down
+2018-10-19 20:51:38 CEST [31710-1] LOG:  database system was shut down at 2018-10-19 20:51:37 CEST
+2018-10-19 20:51:38 CEST [31710-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-19 20:51:38 CEST [31714-1] LOG:  autovacuum launcher started
+2018-10-19 20:51:38 CEST [31709-1] LOG:  database system is ready to accept connections
+2018-10-19 20:51:39 CEST [31716-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-19 20:51:58 CEST [31709-2] LOG:  received fast shutdown request
+2018-10-19 20:51:58 CEST [31709-3] LOG:  aborting any active transactions
+2018-10-19 20:51:58 CEST [31714-2] LOG:  autovacuum launcher shutting down
+2018-10-19 20:51:58 CEST [31711-1] LOG:  shutting down
+2018-10-19 20:51:58 CEST [31711-2] LOG:  database system is shut down
+2018-10-19 20:51:59 CEST [31770-1] LOG:  database system was shut down at 2018-10-19 20:51:58 CEST
+2018-10-19 20:51:59 CEST [31770-2] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-19 20:51:59 CEST [31769-1] LOG:  database system is ready to accept connections
+2018-10-19 20:51:59 CEST [31774-1] LOG:  autovacuum launcher started
+2018-10-19 20:52:00 CEST [31776-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-20 13:50:36 CEST [1143-1] LOG:  database system was interrupted; last known up at 2018-10-19 20:56:59 CEST
+2018-10-20 13:50:36 CEST [1143-2] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-10-20 13:50:36 CEST [1143-3] LOG:  invalid record length at 10/5281F88
+2018-10-20 13:50:36 CEST [1143-4] LOG:  redo is not required
+2018-10-20 13:50:36 CEST [1143-5] LOG:  MultiXact member wraparound protections are now enabled
+2018-10-20 13:50:36 CEST [1160-1] LOG:  autovacuum launcher started
+2018-10-20 13:50:36 CEST [1122-1] LOG:  database system is ready to accept connections
+2018-10-20 13:50:37 CEST [1180-1] [unknown]@[unknown] LOG:  incomplete startup packet
+2018-10-20 17:36:24 CEST [7282-1] lars@lars_test ERROR:  syntax error at or near "and" at character 163
+2018-10-20 17:36:24 CEST [7282-2] lars@lars_test STATEMENT:  select
+	  image_id
+	from
+	  image
+
+	join imagexkeyword
+	  on imagexkeyword_image_id = image_id
+
+	join keyword
+	  on keyword_id = imagexkeyword_keyword_id
+
+	--where
+	where
+	and
+	  extract('year' from image_capturetime) = 1992
+
+	limit 1000
+2018-10-20 21:15:41 CEST [7282-3] lars@lars_test ERROR:  syntax error at or near "diediedie" at character 436
+2018-10-20 21:15:41 CEST [7282-4] lars@lars_test STATEMENT:  select
+	  image_id
+	from
+	  image
+
+	join imagexkeyword
+	  on imagexkeyword_image_id = image_id
+
+	join keyword
+	  on keyword_id = imagexkeyword_keyword_id
+
+	left join facebox
+	       on facebox_image_id = image_id
+
+	left join personxfacebox
+	       on personxfacebox_facebox_id = facebox_id
+
+	left join person
+	       on person_id = personxfacebox_person_id
+
+	--where
+	where
+	extract('year' from image_capturetime) = 2018
+
+	group by image_id
+	limit 1000
+	diediedie
+2018-10-20 22:26:09 CEST [7282-5] lars@lars_test ERROR:  syntax error at or near "group" at character 410
+2018-10-20 22:26:09 CEST [7282-6] lars@lars_test STATEMENT:  select
+	  image_id
+	from
+	  image
+
+	join imagexkeyword
+	  on imagexkeyword_image_id = image_id
+
+	join keyword
+	  on keyword_id = imagexkeyword_keyword_id
+
+	left join facebox
+	       on facebox_image_id = image_id
+
+	left join personxfacebox
+	       on personxfacebox_facebox_id = facebox_id
+
+	left join person
+	       on person_id = personxfacebox_person_id
+
+	--where
+	where
+	keyword_name ilike 'Lars'
+	order by image_filename
+	group by image_id
+	limit 1000

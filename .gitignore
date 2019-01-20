@@ -1,0 +1,3 @@
+build/
+tests/file_assets/__pycache__/
+venv3/
