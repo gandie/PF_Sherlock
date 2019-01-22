@@ -24,6 +24,7 @@ import argparse
 import os
 import textwrap
 import sys
+import tracemalloc
 
 # custom
 import sherlock.sherlock as sherlock
@@ -37,6 +38,11 @@ def main(args):
     '''
     s = sherlock.Sherlock.from_args(args)
     s.run()
+    snapshot = tracemalloc.take_snapshot()
+    top_stats = snapshot.statistics('lineno')
+
+    for stat in top_stats[:10]:
+        print(stat)
 
 
 if __name__ == '__main__':
@@ -47,6 +53,7 @@ if __name__ == '__main__':
     - check arguments, especially config path, use defaults
     - pass args to maint function
     '''
+    tracemalloc.start()
 
     parser = argparse.ArgumentParser(
         prog='pf_sherlock',

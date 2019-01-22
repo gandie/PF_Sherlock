@@ -30,7 +30,6 @@ import sherlock.pager as pager
 import os
 import importlib.util
 
-
 # module maps
 PARSERS_HELP = '''
 PARSERS
@@ -194,6 +193,7 @@ class Sherlock(object):
         - sort results by datetime
         - call display building and run it showing results
         '''
+
         self.results = []
         for parser_d in self.parsers:
             p = parser_d['instance']

@@ -21,6 +21,7 @@
 
 from sherlock.parser import Parser
 import datetime
+import dateutil.parser
 
 
 class Psql_Parser(Parser):
@@ -36,12 +37,12 @@ class Psql_Parser(Parser):
                 continue
             if not tokens[0][0].isdigit():
                 continue
+            datestring = ' '.join(tokens[:2])
+            dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+            assert dateobj, 'Unable to build date from %s' % datestring
             line_d = {
                 'code': tokens[5],
-                'datetime': datetime.datetime.strptime(
-                    ' '.join(tokens[:2]),
-                    '%Y-%m-%d %X'
-                ),
+                'datetime': dateobj,
                 'raw_line': line
             }
             res.append(line_d)
@@ -57,14 +58,14 @@ class Apache2_Error_Parser(Parser):
         res = []
         for line in self.raw_data.split(u'\n'):
             tokens = line.split()
-            if not tokens or not tokens[0] or len(tokens[0]) == 0:
+            if not tokens or not tokens[0] or len(tokens[0]) == 0 or not tokens[0].startswith(u'['):
                 continue
+            datestring = ' '.join(tokens[:5])[1:-1]
+            dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+            assert dateobj, 'Unable to build date from %s' % datestring
             line_d = {
                 'code': tokens[5][1:-1],
-                'datetime': datetime.datetime.strptime(
-                    ' '.join(tokens[:5])[1:-1],
-                    '%c'  # Tue Mar 08 10:34:31 2005
-                ),
+                'datetime': dateobj,
                 'raw_line': line
             }
             res.append(line_d)
@@ -82,12 +83,21 @@ class Apache2_Access_Parser(Parser):
             tokens = line.split()
             if not tokens or not tokens[0] or len(tokens[0]) == 0:
                 continue
+            datestring = tokens[3][1:]
+            try:
+                dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+            except ValueError:
+                dateobj = datetime.datetime.strptime(
+                    datestring,
+                    '%d/%b/%Y:%X'
+                )
+            except Exception:
+                raise
+
+            assert dateobj, 'Unable to build date from %s' % datestring
             line_d = {
                 'code': tokens[8],
-                'datetime': datetime.datetime.strptime(
-                    tokens[3][1:],
-                    '%d/%b/%Y:%X'
-                ),
+                'datetime': dateobj,
                 'raw_line': line
             }
             res.append(line_d)
@@ -105,6 +115,17 @@ class Journal_Parser(Parser):
             tokens = line.split()
             if not tokens or not tokens[0] or len(tokens[0]) == 0 or tokens[0] == '--':
                 continue
+            datestring = tokens[0]
+            datestring = datestring.replace(u',', u'.')
+            dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+            assert dateobj, 'Unable to build date from %s' % datestring
+            line_d = {
+                'code': tokens[1] if tokens[1].endswith(u':') else tokens[2][:-1],
+                'datetime': dateobj,
+                'raw_line': line
+            }
+
+            '''
             line_d = {
                 'code': tokens[2],
                 'datetime': datetime.datetime.strptime(
@@ -113,5 +134,6 @@ class Journal_Parser(Parser):
                 ),
                 'raw_line': line
             }
+            '''
             res.append(line_d)
         return res

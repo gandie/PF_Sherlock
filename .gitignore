@@ -1,3 +1,5 @@
 build/
 tests/file_assets/__pycache__/
 venv3/
+var_log*
+dev_config.py

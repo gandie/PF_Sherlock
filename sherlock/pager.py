@@ -91,7 +91,7 @@ class Tablepager(Display):
         return "\n".join([header, sep] + rows)
 
     def setup(self):
-        self.display_text = self.make_table(['datetime', 'code', 'raw_line'], self.parser_results)
+        self.display_text = self.make_table(['datetime', 'code',  'type', 'raw_line'], self.parser_results)
 
     def run(self):
         pydoc.pager(self.display_text)
