@@ -25,26 +25,11 @@ from abc import ABC  # abstract base class
 class Parser(ABC):
 
     '''
-    Base class for all parser implementations. Methods not implemented but
-    defined here are meant as abstract methods to be implemented in subclasses.
+    Base class for all parser implementations.
     '''
 
-    def __init__(self, datasource, **kwargs):
+    def run(self, line):
         '''
-        - Check path
-        '''
-        self.datasource = datasource(**kwargs)
-
-    def setup(self):
-        '''
-        - run datasource, safe result
-        '''
-        self.datasource.setup()
-        self.raw_data = self.datasource.run()
-
-    def run(self):
-        '''
-        Method must return normalized logfile lines to be filtered and shown
-        in sherlock
+        Process one line for output stream
         '''
         pass

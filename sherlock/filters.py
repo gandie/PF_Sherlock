@@ -40,14 +40,11 @@ class Lasthours(Filter):
         self.lasth = int(self.kwargs['lasth'])
         self.hours_ago = datetime.datetime.now() - datetime.timedelta(hours=self.lasth)
 
-    def run(self, results):
+    def run(self, line_d):
         '''
         run filter against parser_results
         '''
-        return [
-            item for item in results
-            if item['datetime'] > self.hours_ago
-        ]
+        return line_d['datetime'] > self.hours_ago
 
 
 class Keyword(Filter):
@@ -65,11 +62,8 @@ class Keyword(Filter):
         assert 'keyword' in self.kwargs, 'keyword argument needed!'
         self.keyword = str(self.kwargs['keyword'])
 
-    def run(self, results):
+    def run(self, line_d):
         '''
         run filter against parser_results
         '''
-        return [
-            item for item in results
-            if self.keyword in item['raw_line']
-        ]
+        return self.keyword in line_d['raw_line']

@@ -29,24 +29,21 @@ class Psql_Parser(Parser):
     Parser for psql logfiles
     '''
 
-    def run(self):
-        res = []
-        for line in self.raw_data.split(u'\n'):
-            tokens = line.split()
-            if not tokens or not tokens[0] or len(tokens[0]) == 0:
-                continue
-            if not tokens[0][0].isdigit():
-                continue
-            datestring = ' '.join(tokens[:2])
-            dateobj = dateutil.parser.parse(datestring, ignoretz=True)
-            assert dateobj, 'Unable to build date from %s' % datestring
-            line_d = {
-                'code': tokens[5],
-                'datetime': dateobj,
-                'raw_line': line
-            }
-            res.append(line_d)
-        return res
+    def run(self, line):
+        tokens = line.split()
+        if not tokens or not tokens[0] or len(tokens[0]) == 0:
+            return
+        if not tokens[0][0].isdigit():
+            return
+        datestring = ' '.join(tokens[:2])
+        dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+        assert dateobj, 'Unable to build date from %s' % datestring
+        line_d = {
+            'code': tokens[5],
+            'datetime': dateobj,
+            'raw_line': line
+        }
+        return line_d
 
 
 class Apache2_Error_Parser(Parser):
@@ -54,22 +51,19 @@ class Apache2_Error_Parser(Parser):
     Parser for apache2 error logfiles
     '''
 
-    def run(self):
-        res = []
-        for line in self.raw_data.split(u'\n'):
-            tokens = line.split()
-            if not tokens or not tokens[0] or len(tokens[0]) == 0 or not tokens[0].startswith(u'['):
-                continue
-            datestring = ' '.join(tokens[:5])[1:-1]
-            dateobj = dateutil.parser.parse(datestring, ignoretz=True)
-            assert dateobj, 'Unable to build date from %s' % datestring
-            line_d = {
-                'code': tokens[5][1:-1],
-                'datetime': dateobj,
-                'raw_line': line
-            }
-            res.append(line_d)
-        return res
+    def run(self, line):
+        tokens = line.split()
+        if not tokens or not tokens[0] or len(tokens[0]) == 0 or not tokens[0].startswith(u'['):
+            return
+        datestring = ' '.join(tokens[:5])[1:-1]
+        dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+        assert dateobj, 'Unable to build date from %s' % datestring
+        line_d = {
+            'code': tokens[5][1:-1],
+            'datetime': dateobj,
+            'raw_line': line
+        }
+        return line_d
 
 
 class Apache2_Access_Parser(Parser):
@@ -77,31 +71,28 @@ class Apache2_Access_Parser(Parser):
     Parser for apache2 access logfiles
     '''
 
-    def run(self):
-        res = []
-        for line in self.raw_data.split(u'\n'):
-            tokens = line.split()
-            if not tokens or not tokens[0] or len(tokens[0]) == 0:
-                continue
-            datestring = tokens[3][1:]
-            try:
-                dateobj = dateutil.parser.parse(datestring, ignoretz=True)
-            except ValueError:
-                dateobj = datetime.datetime.strptime(
-                    datestring,
-                    '%d/%b/%Y:%X'
-                )
-            except Exception:
-                raise
+    def run(self, line):
+        tokens = line.split()
+        if not tokens or not tokens[0] or len(tokens[0]) == 0:
+            return
+        datestring = tokens[3][1:]
+        try:
+            dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+        except ValueError:
+            dateobj = datetime.datetime.strptime(
+                datestring,
+                '%d/%b/%Y:%X'
+            )
+        except Exception:
+            raise
 
-            assert dateobj, 'Unable to build date from %s' % datestring
-            line_d = {
-                'code': tokens[8],
-                'datetime': dateobj,
-                'raw_line': line
-            }
-            res.append(line_d)
-        return res
+        assert dateobj, 'Unable to build date from %s' % datestring
+        line_d = {
+            'code': tokens[8],
+            'datetime': dateobj,
+            'raw_line': line
+        }
+        return line_d
 
 
 class Journal_Parser(Parser):
@@ -109,31 +100,28 @@ class Journal_Parser(Parser):
     Parser for journal log
     '''
 
-    def run(self):
-        res = []
-        for line in self.raw_data.split(u'\n'):
-            tokens = line.split()
-            if not tokens or not tokens[0] or len(tokens[0]) == 0 or tokens[0] == '--':
-                continue
-            datestring = tokens[0]
-            datestring = datestring.replace(u',', u'.')
-            dateobj = dateutil.parser.parse(datestring, ignoretz=True)
-            assert dateobj, 'Unable to build date from %s' % datestring
-            line_d = {
-                'code': tokens[1] if tokens[1].endswith(u':') else tokens[2][:-1],
-                'datetime': dateobj,
-                'raw_line': line
-            }
+    def run(self, line):
+        tokens = line.split()
+        if not tokens or not tokens[0] or len(tokens[0]) == 0 or tokens[0] == '--':
+            return
+        datestring = tokens[0]
+        datestring = datestring.replace(u',', u'.')
+        dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+        assert dateobj, 'Unable to build date from %s' % datestring
+        line_d = {
+            'code': tokens[1] if tokens[1].endswith(u':') else tokens[2][:-1],
+            'datetime': dateobj,
+            'raw_line': line
+        }
 
-            '''
-            line_d = {
-                'code': tokens[2],
-                'datetime': datetime.datetime.strptime(
-                    tokens[0][:19],
-                    '%Y-%m-%dT%X'
-                ),
-                'raw_line': line
-            }
-            '''
-            res.append(line_d)
-        return res
+        '''
+        line_d = {
+            'code': tokens[2],
+            'datetime': datetime.datetime.strptime(
+                tokens[0][:19],
+                '%Y-%m-%dT%X'
+            ),
+            'raw_line': line
+        }
+        '''
+        return line_d

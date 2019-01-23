@@ -30,24 +30,30 @@ class Logfile(Datasource):
     Simple Logfile datasource
     '''
 
-    def setup(self):
-        '''
-        - check path argument
-        '''
-        assert 'path' in self.kwargs, 'Needs path argument!'
-
-        path = self.kwargs['path']
-        assert os.path.isfile(path), 'Path must be a valid file: %s' % path
-
-        self.path = path
-
     def run(self):
         '''
         read file bytes, decode and return
         '''
-        with open(self.path, 'rb') as myfile:
-            text = myfile.read().decode('utf-8')
-        return text
+
+        assert 'path' in self.kwargs, 'Needs path argument!'
+        path = self.kwargs['path']
+        assert os.path.isfile(path), 'Path must be a valid file: %s' % path
+
+        logfile = open(path, 'r', encoding='utf-8')
+        while True:
+            line = logfile.readline()
+            if line:
+                line_d = self.parser.run(line)
+                if not line_d:
+                    continue
+                for lfilter in self.filters:
+                    if not lfilter.run(line_d):
+                        break
+                else:  # nobreak - all filters returned True
+                    yield line_d
+            else:
+                logfile.close()
+                break
 
 
 class Shellcommand(Datasource):
@@ -56,46 +62,32 @@ class Shellcommand(Datasource):
     Fetch data from shell command. Very dangerous.
     '''
 
-    def setup(self):
-        '''
-        - check command argument
-        '''
-        assert 'command' in self.kwargs, 'Needs command argument!'
-
-        cmd = self.kwargs['command']
-        self.command = cmd
-
     def run(self):
         '''
         - call shell command and return decoded result
         - ATTENTION! shell=True is activated to leverage shell tools like pipes
         '''
-        return subprocess.check_output(self.command, shell=True).decode('utf-8')
+        assert 'command' in self.kwargs, 'Needs command argument!'
+        cmd = self.kwargs['command']
 
-
-def readLogfile(path):
-    logfile = open(path, 'r', encoding='utf-8')
-    while True:
-        line = logfile.readline()
-        if line:
-            yield line
-        else:
-            break
-
-
-def runProcess(exe):
-    p = subprocess.Popen(
-        exe,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT
-    )
-    while True:
-        # returns None while subprocess is running
-        retcode = p.poll()
-        line = p.stdout.readline().decode('utf-8')
-        '''
-        plugin parser here! yielded item must be a dict
-        '''
-        yield line
-        if retcode is not None and not line:
-            break
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            shell=True
+        )
+        while True:
+            # returns None while subprocess is running
+            retcode = proc.poll()
+            line = proc.stdout.readline().decode('utf-8')
+            if line:
+                line_d = self.parser.run(line)
+                if not line_d:
+                    continue
+                for lfilter in self.filters:
+                    if not lfilter.run(line_d):
+                        break
+                else:
+                    yield line_d
+            if retcode is not None and not line:
+                break

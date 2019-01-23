@@ -9,7 +9,7 @@ logfile_map = {
 # ATTENTION! shell=True is set, so think before firing your commands!
 shellcmd_map = {
     'journal': 'journalctl -o short-iso --no-pager',
-    'journal': 'dmesg --time-format iso -P',
+    # 'journal': 'dmesg --time-format iso -P',
 }
 
 # filter may also be passed as arguments from pf_sherlock

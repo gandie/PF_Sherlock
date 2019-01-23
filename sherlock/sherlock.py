@@ -112,8 +112,7 @@ class Sherlock(object):
 
     def __init__(self, logfile_map, shellcmd_map, display_name, filter_map=None):
         '''
-        check and apply configpath
-        call initialization methods
+        check args and call initialization methods
         '''
         self.logfile_map = logfile_map
         self.shellcmd_map = shellcmd_map
@@ -126,35 +125,29 @@ class Sherlock(object):
         else:
             self.filter_map = filter_map
 
-        self.build_parser()
+        self.setup()
 
-    def build_parser(self):
-        '''
-        called when instance is populated
-        build parser defined logfile_map and shellcmd_map
-        '''
-        self.parsers = []
+    def setup(self):
+        self.build_filter()
+
+        self.datasources = {}
         for parser, path in self.logfile_map.items():
             assert parser in PARSERS, 'Unknown parser: %s' % parser
-            p = PARSERS[parser](DATASOURCES['logfile'], path=path)
-            p.setup()
-            parser_d = {
-                'type': 'logfile',
-                'path': path,
-                'instance': p,
-            }
-            self.parsers.append(parser_d)
+            source = DATASOURCES['logfile'](
+                PARSERS[parser](),
+                self.filters,
+                path=path
+            )
+            self.datasources[path] = source.run()
 
         for parser, command in self.shellcmd_map.items():
             assert parser in PARSERS, 'Unknown parser: %s' % parser
-            p = PARSERS[parser](DATASOURCES['shellcommand'], command=command)
-            p.setup()
-            parser_d = {
-                'type': 'shellcommand',
-                'command': command,
-                'instance': p,
-            }
-            self.parsers.append(parser_d)
+            source = DATASOURCES['shellcommand'](
+                PARSERS[parser](),
+                self.filters,
+                command=command
+            )
+            self.datasources[command] = source.run()
 
     def build_filter(self):
         '''
@@ -170,52 +163,45 @@ class Sherlock(object):
             }
             f = f_class(**kwargs)
             f.setup()
-            filter_d = {
-                'type': fkey,
-                'arg': argument,
-                'instance': f
-            }
-            self.filters.append(filter_d)
-
-    def build_display(self):
-        '''
-        prepare display to show results
-        '''
-        self.display = DISPLAYS[self.display_name](self.results)
-        self.display.setup()
+            self.filters.append(f)
 
     def run(self):
         '''
         method called from executable
-        - call all parsers previously built
-        - add meta data and safe result
-        - prepare and apply filters
-        - sort results by datetime
-        - call display building and run it showing results
         '''
+        self.buffer = {}
+        import time
+        import pprint
+        while self.datasources:
+            poplist = []
+            for key, iterator in self.datasources.items():
+                if key not in self.buffer or not self.buffer[key]:
+                    try:
+                        self.buffer[key] = iterator.send(None)
+                        # print('Filled buffer %s' % key)
+                    except StopIteration:
+                        poplist.append(key)
+                    except:
+                        raise
 
-        self.results = []
-        for parser_d in self.parsers:
-            p = parser_d['instance']
-            result = p.run()
-            result_meta = {
-                key: value for key, value in parser_d.items()
-                if key != 'instance'
-            }
-            for item in result:
-                item.update(result_meta)
+            # pprint.pprint(self.buffer)
+            for key in poplist:
+                self.datasources.pop(key)
 
-            self.results.extend(result)
+            mindate = None
+            popkey = None
+            for key, line_d in self.buffer.items():
+                if not mindate:
+                    mindate = line_d['datetime']
+                    popkey = key
+                    continue
+                if line_d['datetime'] < mindate:
+                    mindate = line_d['datetime']
+                    popkey = key
 
-        self.build_filter()
-        for filter_d in self.filters:
-            self.results = filter_d['instance'].run(self.results)
-
-        self.results.sort(key=lambda x: x['datetime'])
-
-        self.build_display()
-
-        self.display.run()
+            if popkey and popkey in self.buffer:
+                popline = self.buffer.pop(popkey)
+                print(popline['raw_line'].strip())
 
     @staticmethod
     def load_config(configpath):

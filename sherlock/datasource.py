@@ -25,24 +25,22 @@ from abc import ABC  # abstract base class
 class Datasource(ABC):
 
     '''
-    Base class for all data source implementations. Methods not implemented but
-    defined here are meant as abstract methods to be implemented in subclasses.
+    Base class for all data source implementations.
+
+    A datasource wraps tasks neccessary to create a parsed stream of lines
+    from a logfile or a shell command.
     '''
 
-    def __init__(self, **kwargs):
+    def __init__(self, parser, filters, **kwargs):
         '''
-        - safe unknown arguments
+        - safe parser unknown arguments
         '''
+        self.parser = parser
+        self.filters = filters
         self.kwargs = kwargs
-
-    def setup(self):
-        '''
-        - validate datasource arguments, prepare execution
-        '''
-        pass
 
     def run(self):
         '''
-        - fetch data, return to parser
+        - must yield parsed lines
         '''
         pass

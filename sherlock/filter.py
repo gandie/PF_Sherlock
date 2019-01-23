@@ -34,12 +34,6 @@ class Filter(ABC):
         '''
         self.kwargs = kwargs
 
-    def setup(self):
-        '''
-        check arguments and prepare filtering
-        '''
-        pass
-
     def run(self):
         '''
         run filter against parser_results
