@@ -45,6 +45,8 @@ PARSERS = {
     'apache2-error': parsers.Apache2_Error_Parser,
     'apache2-access': parsers.Apache2_Access_Parser,
     'journal': parsers.Journal_Parser,
+    'measure': parsers.Measure_Parser,
+    'auth': parsers.Auth_Parser,
 }
 
 DATASOURCES_HELP = '''
@@ -129,6 +131,10 @@ class Sherlock(object):
         self.setup()
 
     def setup(self):
+        '''
+        Called after populating sherlock instance
+        '''
+
         self.build_filter()
 
         self.datasources = {}
@@ -159,34 +165,44 @@ class Sherlock(object):
         for fkey, argument in self.filter_map.items():
             assert fkey in FILTERS, 'Unknown filter %s' % fkey
             f_class = FILTERS[fkey]
-            kwargs = {
+            f_instance = f_class(**{
                 f_class.argument: argument
-            }
-            f = f_class(**kwargs)
-            f.setup()
-            self.filters.append(f)
+            })
+            f_instance.setup()
+            self.filters.append(f_instance)
 
     def run(self):
         '''
-        method called from executable
+        method called from executable. runs main loop on datasources.
+        - initialize buffer dict
+        - run mainloop (as long as data available)
+          - fill buffer
+          - remove empty datasources
+          - find and pop line having the lowest datetime entry from buffer
         '''
+
         self.buffer = {}
+
         while self.datasources:
+
+            # poplist is used to pop empty datasources
             poplist = []
+
+            # fetch buffer items from datasources, memorize empty ones
             for key, iterator in self.datasources.items():
                 if key not in self.buffer or not self.buffer[key]:
                     try:
                         self.buffer[key] = iterator.send(None)
-                        # print('Filled buffer %s' % key)
                     except StopIteration:
                         poplist.append(key)
-                    except:
+                    except Exception:
                         raise
 
-            # pprint.pprint(self.buffer)
+            # remove empty datasources
             for key in poplist:
                 self.datasources.pop(key)
 
+            # find and memorize buffer key to pop by finding earliest datetime
             mindate = None
             popkey = None
             for key, line_d in self.buffer.items():
@@ -198,8 +214,10 @@ class Sherlock(object):
                     mindate = line_d['datetime']
                     popkey = key
 
+            # throw popkey line from buffer, remove popkey from buffer
             if popkey and popkey in self.buffer:
                 popline = self.buffer.pop(popkey)
+                # XXX: plugin display here?!
                 sys.stdout.write(popline['raw_line'])
 
     @staticmethod

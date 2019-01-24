@@ -24,6 +24,48 @@ import datetime
 import dateutil.parser
 
 
+class Auth_Parser(Parser):
+    '''
+    Parser for auth logfiles
+    '''
+    def run(self, line):
+        tokens = line.split()
+        if not tokens or not tokens[0] or len(tokens[0]) == 0:
+            return
+        if len(tokens) == 1 or not tokens[1][0].isdigit():
+            return
+        datestring = ' '.join(tokens[:3])
+        dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+        assert dateobj, 'Unable to build date from %s' % datestring
+        line_d = {
+            'code': tokens[4],
+            'datetime': dateobj,
+            'raw_line': line
+        }
+        return line_d
+
+
+class Measure_Parser(Parser):
+    '''
+    Parser for measure logfiles
+    '''
+    def run(self, line):
+        tokens = line.split()
+        if not tokens or not tokens[0] or len(tokens[0]) == 0:
+            return
+        if not tokens[0][0].isdigit() or len(tokens) == 1:
+            return
+        datestring = tokens[0]
+        dateobj = dateutil.parser.parse(datestring, ignoretz=True)
+        assert dateobj, 'Unable to build date from %s' % datestring
+        line_d = {
+            'code': tokens[1],
+            'datetime': dateobj,
+            'raw_line': line
+        }
+        return line_d
+
+
 class Psql_Parser(Parser):
     '''
     Parser for psql logfiles
