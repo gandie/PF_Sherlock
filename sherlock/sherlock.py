@@ -29,6 +29,7 @@ import sherlock.pager as pager
 # builtin
 import os
 import importlib.util
+import sys
 
 # module maps
 PARSERS_HELP = '''
@@ -131,7 +132,7 @@ class Sherlock(object):
         self.build_filter()
 
         self.datasources = {}
-        for parser, path in self.logfile_map.items():
+        for parser, path in self.logfile_map:
             assert parser in PARSERS, 'Unknown parser: %s' % parser
             source = DATASOURCES['logfile'](
                 PARSERS[parser](),
@@ -140,7 +141,7 @@ class Sherlock(object):
             )
             self.datasources[path] = source.run()
 
-        for parser, command in self.shellcmd_map.items():
+        for parser, command in self.shellcmd_map:
             assert parser in PARSERS, 'Unknown parser: %s' % parser
             source = DATASOURCES['shellcommand'](
                 PARSERS[parser](),
@@ -170,8 +171,6 @@ class Sherlock(object):
         method called from executable
         '''
         self.buffer = {}
-        import time
-        import pprint
         while self.datasources:
             poplist = []
             for key, iterator in self.datasources.items():
@@ -201,7 +200,7 @@ class Sherlock(object):
 
             if popkey and popkey in self.buffer:
                 popline = self.buffer.pop(popkey)
-                print(popline['raw_line'].strip())
+                sys.stdout.write(popline['raw_line'])
 
     @staticmethod
     def load_config(configpath):

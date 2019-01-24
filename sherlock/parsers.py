@@ -33,13 +33,13 @@ class Psql_Parser(Parser):
         tokens = line.split()
         if not tokens or not tokens[0] or len(tokens[0]) == 0:
             return
-        if not tokens[0][0].isdigit():
+        if not tokens[0][0].isdigit() or len(tokens) == 1 or not tokens[1][0].isdigit():
             return
         datestring = ' '.join(tokens[:2])
         dateobj = dateutil.parser.parse(datestring, ignoretz=True)
         assert dateobj, 'Unable to build date from %s' % datestring
         line_d = {
-            'code': tokens[5],
+            'code': tokens[3],
             'datetime': dateobj,
             'raw_line': line
         }
@@ -106,6 +106,8 @@ class Journal_Parser(Parser):
             return
         datestring = tokens[0]
         datestring = datestring.replace(u',', u'.')
+        if not datestring[0].isdigit():
+            return
         dateobj = dateutil.parser.parse(datestring, ignoretz=True)
         assert dateobj, 'Unable to build date from %s' % datestring
         line_d = {
