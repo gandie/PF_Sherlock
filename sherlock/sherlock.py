@@ -65,8 +65,8 @@ DATASOURCES = {
 OUTPUTS_HELP = '''
 OUTPUTS
 :: output-name: OutputClass
-output-name is references via output string in config.py, it is used to build
-output instance
+output-name is references via output string in config.py or via output argument,
+it is used to build output instance which is populated during sherlock main loop
 
 '''
 OUTPUTS = {
@@ -95,13 +95,13 @@ def show_help():
     '''
     res = ''''''
     res += PARSERS_HELP
-    res += u'\n'.join('%s %s' % (key, value) for key, value in PARSERS.items())
+    res += u'\n'.join('%s %s' % (key, value.__doc__) for key, value in PARSERS.items())
     res += DATASOURCES_HELP
-    res += u'\n'.join('%s %s' % (key, value) for key, value in DATASOURCES.items())
+    res += u'\n'.join('%s %s' % (key, value.__doc__) for key, value in DATASOURCES.items())
     res += OUTPUTS_HELP
-    res += u'\n'.join('%s %s' % (key, value) for key, value in OUTPUTS.items())
+    res += u'\n'.join('%s %s' % (key, value.__doc__) for key, value in OUTPUTS.items())
     res += FILTERS_HELP
-    res += u'\n'.join('%s %s' % (key, value) for key, value in FILTERS.items())
+    res += u'\n'.join('%s %s' % (key, value.__doc__) for key, value in FILTERS.items())
     return res
 
 
