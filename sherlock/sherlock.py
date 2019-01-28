@@ -63,11 +63,10 @@ DATASOURCES = {
 }
 
 OUTPUTS_HELP = '''
-CURRENTLY DISABLED!
 OUTPUTS
-:: display-name: DisplayClass
-display-name is references via display string in config.py, it is used to build
-display instance after result sorting
+:: output-name: OutputClass
+output-name is references via output string in config.py, it is used to build
+output instance
 
 '''
 OUTPUTS = {
