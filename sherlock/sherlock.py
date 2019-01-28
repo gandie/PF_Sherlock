@@ -23,7 +23,7 @@
 import sherlock.parsers as parsers
 import sherlock.datasources as datasources
 import sherlock.filters as filters
-import sherlock.pager as pager
+import sherlock.outputs as outputs
 
 
 # builtin
@@ -62,17 +62,18 @@ DATASOURCES = {
     'shellcommand': datasources.Shellcommand,
 }
 
-DISPLAYS_HELP = '''
-
-DISPLAYS
+OUTPUTS_HELP = '''
+CURRENTLY DISABLED!
+OUTPUTS
 :: display-name: DisplayClass
 display-name is references via display string in config.py, it is used to build
 display instance after result sorting
 
 '''
-DISPLAYS = {
-    'simple': pager.SimplePager,
-    'table': pager.Tablepager
+OUTPUTS = {
+    'simple': outputs.SimplePager,
+    'stdout': outputs.StdOut,
+    'table': outputs.Tablepager,
 }
 
 FILTERS_HELP = '''
@@ -98,8 +99,8 @@ def show_help():
     res += u'\n'.join('%s %s' % (key, value) for key, value in PARSERS.items())
     res += DATASOURCES_HELP
     res += u'\n'.join('%s %s' % (key, value) for key, value in DATASOURCES.items())
-    res += DISPLAYS_HELP
-    res += u'\n'.join('%s %s' % (key, value) for key, value in DISPLAYS.items())
+    res += OUTPUTS_HELP
+    res += u'\n'.join('%s %s' % (key, value) for key, value in OUTPUTS.items())
     res += FILTERS_HELP
     res += u'\n'.join('%s %s' % (key, value) for key, value in FILTERS.items())
     return res
@@ -108,20 +109,20 @@ def show_help():
 class Sherlock(object):
 
     '''
-    Main class of pf_sherlock. Builds parser instances from modules available
-    and runs them against corresponding logfiles. Then apply filters to parser
-    resuslts and present them in display.
+    Main class of pf_sherlock.
+    Builds datasource instances and sort their output by datetime
     '''
 
-    def __init__(self, logfile_map, shellcmd_map, display_name, filter_map=None):
+    def __init__(self, logfile_map, shellcmd_map, output_name, filter_map=None):
         '''
         check args and call initialization methods
         '''
         self.logfile_map = logfile_map
         self.shellcmd_map = shellcmd_map
 
-        assert display_name in DISPLAYS, 'Unknown display %s' % display_name
-        self.display_name = display_name
+        assert output_name in OUTPUTS, 'Unknown output %s' % output_name
+        self.output_name = output_name
+        self.output = OUTPUTS[output_name]()
 
         if not filter_map:
             self.filter_map = {}
@@ -158,8 +159,8 @@ class Sherlock(object):
 
     def build_filter(self):
         '''
-        called when results from parsers are available
-        build filters defined filter_map
+        called during setup method
+        build filters defined in filter_map
         '''
         self.filters = []
         for fkey, argument in self.filter_map.items():
@@ -182,6 +183,7 @@ class Sherlock(object):
         '''
 
         self.buffer = {}
+        self.output.setup()
 
         while self.datasources:
 
@@ -217,8 +219,11 @@ class Sherlock(object):
             # throw popkey line from buffer, remove popkey from buffer
             if popkey and popkey in self.buffer:
                 popline = self.buffer.pop(popkey)
-                # XXX: plugin display here?!
-                sys.stdout.write(popline['raw_line'])
+                self.output.write(popline)
+
+        # close output stream and call optional run method
+        self.output.close()
+        self.output.run()
 
     @staticmethod
     def load_config(configpath):
@@ -257,9 +262,14 @@ class Sherlock(object):
             }
             filter_map.update(args_filter_map)
 
+        if args.output:
+            output_name = args.output
+        else:
+            output_name = config.output
+
         return Sherlock(
             logfile_map=config.logfile_map,
             shellcmd_map=config.shellcmd_map,
-            display_name=config.display,
+            output_name=output_name,
             filter_map=filter_map
         )

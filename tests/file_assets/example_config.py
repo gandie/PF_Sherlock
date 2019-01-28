@@ -38,4 +38,4 @@ filter_map = {
 '''
 
 # display keyword
-display = 'table'
+output = 'stdout'

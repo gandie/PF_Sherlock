@@ -13,7 +13,7 @@ and used components.
 * `datasources` -- Places to fetch data from
 * `parsers`     -- Processing lines from datasources
 * `filters`     -- Filter data from parsers
-* `pager`       -- Show results, more display implementations to come!
+* `outputs`     -- Show results
 
 ## Guide
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Copyright (c) 2019 Lars Bergmann
 #
-# display -- base class for parser result displays
+# output -- base class for parser result outputs
 #
 # GNU GENERAL PUBLIC LICENSE
 #    Version 3, 29 June 2007
@@ -23,26 +23,29 @@ from abc import ABC  # abstract base class
 import os
 
 
-class Display(ABC):
+class Output(ABC):
 
     '''
-    Base class for display implementations of sherlock results
-    '''
+    Base class for output implementations of sherlock results.
 
-    def __init__(self, parser_results):
-        '''
-        safe parser_results for processing
-        '''
-        self.parser_results = parser_results
+    Basically a file-like object wrapper
+    '''
 
     def setup(self):
-        '''
-        prepare parser_results to be shown in run method
-        '''
+        '''called before sherlock main loop. set up output stream'''
+        pass
+
+    def write(self, line_d):
+        '''called during sherlock main loop. compute line_d and write'''
+        pass
+
+    def close(self):
+        '''called after sherlock main loop. tell stream to close'''
         pass
 
     def run(self):
         '''
-        show parser_results
+        called after sherlock main loop.
+        method to keep output running after sherlock has finished
         '''
         pass

@@ -79,6 +79,7 @@ class Shellcommand(Datasource):
         while True:
             # returns None while subprocess is running
             retcode = proc.poll()
+
             line = proc.stdout.readline().decode('utf-8')
             if line:
                 line_d = self.parser.run(line)

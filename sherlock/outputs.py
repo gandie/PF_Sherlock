@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Copyright (c) 2019 Lars Bergmann
 #
-# pager -- simple display implementation using standard pager
+# outputs -- collection of output implementations
 #
 # GNU GENERAL PUBLIC LICENSE
 #    Version 3, 29 June 2007
@@ -19,27 +19,59 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from sherlock.display import Display
+from sherlock.output import Output
+import subprocess
+import sys
 import pydoc
 
 
-class SimplePager(Display):
+class SimplePager(Output):
 
     '''
-    Only display raw lines in standard pager fetched via pydoc, most likely
-    "less"
+    Only display raw lines in "less" pager
     '''
 
     def setup(self):
-        self.display_text = '\n'.join([
-            item['raw_line'] for item in self.parser_results
-        ])
+        '''call less with stdin pipe set'''
+        self.proc = subprocess.Popen('less', stdin=subprocess.PIPE)
+        self.alive = True
+
+    def write(self, line_d):
+        '''take raw_line from line_d, write to and flush proc.stdin'''
+        try:
+            self.proc.stdin.write(line_d['raw_line'].encode(encoding='utf_8'))
+            self.proc.stdin.flush()
+        except BrokenPipeError:
+            print('Pager closed.')
+            sys.exit(0)
+        except:
+            raise
+
+    def close(self):
+        '''close pipe so less knows there is no more incoming data'''
+        if self.alive:
+            self.proc.stdin.close()
 
     def run(self):
-        pydoc.pager(self.display_text)
+        '''wait until user quits "less" '''
+        while self.alive:
+            retcode = self.proc.poll()
+            if retcode is not None:
+                self.alive = False
 
 
-class Tablepager(Display):
+class StdOut(Output):
+
+    '''
+    well, this is stdout. not much to see here.
+    '''
+
+    def write(self, line_d):
+        '''take raw_line from line_d, write to and flush proc.stdin'''
+        sys.stdout.write(line_d['raw_line'])
+
+
+class Tablepager(Output):
 
     '''
     Display full result in table
@@ -84,14 +116,26 @@ class Tablepager(Display):
         # Rows of data
         rows = []
         for d in data:
-            fields = [str(d.get(c, "")).ljust(cell_widths[c]) for c in columns]
+            fields = [str(d.get(c, "")).strip().ljust(cell_widths[c]) for c in columns]
             row = row_template.format(*fields)
             rows.append(row)
 
         return "\n".join([header, sep] + rows)
 
     def setup(self):
-        self.display_text = self.make_table(['datetime', 'code',  'type', 'raw_line'], self.parser_results)
+        self.parser_results = []
+
+    def write(self, line_d):
+        '''memorize hole line'''
+        self.parser_results.append(line_d)
+
+    def close(self):
+        '''build display_text using make_table'''
+        self.display_text = self.make_table(
+            ['datetime', 'code', 'raw_line'],
+            self.parser_results
+        )
 
     def run(self):
+        '''we may use the pydoc.pager shorthand here'''
         pydoc.pager(self.display_text)
