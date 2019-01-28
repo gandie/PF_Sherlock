@@ -34,7 +34,6 @@ class SimplePager(Output):
     def setup(self):
         '''call less with stdin pipe set'''
         self.proc = subprocess.Popen('less', stdin=subprocess.PIPE)
-        self.alive = True
 
     def write(self, line_d):
         '''take raw_line from line_d, write to and flush proc.stdin'''
@@ -49,15 +48,14 @@ class SimplePager(Output):
 
     def close(self):
         '''close pipe so less knows there is no more incoming data'''
-        if self.alive:
-            self.proc.stdin.close()
+        self.proc.stdin.close()
 
     def run(self):
         '''wait until user quits "less" '''
-        while self.alive:
+        while True:
             retcode = self.proc.poll()
             if retcode is not None:
-                self.alive = False
+                break
 
 
 class StdOut(Output):
