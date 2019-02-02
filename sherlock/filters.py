@@ -47,6 +47,30 @@ class Lasthours(Filter):
         return line_d['datetime'] > self.hours_ago
 
 
+class Uptohours(Filter):
+
+    '''
+    Filter parser_results for records from up to X hours before now given as
+    "uptoh" keyword argument
+    '''
+
+    argument = 'uptoh'
+
+    def setup(self):
+        '''
+        check arguments and prepare filtering
+        '''
+        assert 'uptoh' in self.kwargs, 'uptoh argument needed!'
+        self.uptoh = int(self.kwargs['uptoh'])
+        self.hours_ago = datetime.datetime.now() - datetime.timedelta(hours=self.uptoh)
+
+    def run(self, line_d):
+        '''
+        run filter against parser_results
+        '''
+        return line_d['datetime'] < self.hours_ago
+
+
 class Keyword(Filter):
 
     '''

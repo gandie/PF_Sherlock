@@ -85,6 +85,7 @@ arguments on pf_sherlock call. Filters are applied sequential on parser results.
 '''
 FILTERS = {
     'lh': filters.Lasthours,
+    'uh': filters.Uptohours,
     'kw': filters.Keyword,
 }
 

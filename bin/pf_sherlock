@@ -45,7 +45,7 @@ if __name__ == '__main__':
     - check user to be root?
     - parse arguments
     - check arguments, especially config path, use defaults
-    - pass args to maint function
+    - pass args to main function
     '''
 
     parser = argparse.ArgumentParser(
@@ -58,7 +58,7 @@ if __name__ == '__main__':
         '''),
         epilog=textwrap.dedent('''
         ---> Feel free to contact me: <---
-          Lars Bergmann <lars.bergmann@perfact.de>
+          Lars Bergmann <lb@perfact.de>
         '''),
     )
 

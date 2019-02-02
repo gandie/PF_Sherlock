@@ -43,7 +43,7 @@ class SimplePager(Output):
         except BrokenPipeError:
             print('Pager closed.')
             sys.exit(0)
-        except:
+        except Exception:
             raise
 
     def close(self):
@@ -66,7 +66,13 @@ class StdOut(Output):
 
     def write(self, line_d):
         '''take raw_line from line_d, write to and flush proc.stdin'''
-        sys.stdout.write(line_d['raw_line'])
+        try:
+            sys.stdout.write(line_d['raw_line'])
+        except BrokenPipeError:
+            print('Stdout pipe closed.')
+            sys.exit(0)
+        except Exception:
+            raise
 
 
 class Tablepager(Output):
