@@ -28,6 +28,7 @@ class Auth_Parser(Parser):
     '''
     Parser for auth logfiles
     '''
+
     def run(self, line):
         tokens = line.split()
         if not tokens or not tokens[0] or len(tokens[0]) == 0:
@@ -158,14 +159,4 @@ class Journal_Parser(Parser):
             'raw_line': line
         }
 
-        '''
-        line_d = {
-            'code': tokens[2],
-            'datetime': datetime.datetime.strptime(
-                tokens[0][:19],
-                '%Y-%m-%dT%X'
-            ),
-            'raw_line': line
-        }
-        '''
         return line_d

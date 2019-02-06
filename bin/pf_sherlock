@@ -83,7 +83,8 @@ if __name__ == '__main__':
         '--output',
         help='Output to be used',
         nargs='?',
-        choices=sherlock.OUTPUTS.keys()
+        choices=sherlock.OUTPUTS.keys(),
+        default='stdout'
     )
 
     parser.add_argument(

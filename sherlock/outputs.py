@@ -68,7 +68,7 @@ class StdOut(Output):
         '''take raw_line from line_d, write to and flush proc.stdin'''
         try:
             sys.stdout.write(line_d['raw_line'])
-        except BrokenPipeError:
+        except BrokenPipeError:  # XXX: error is still shown!?
             print('Stdout pipe closed.')
             sys.exit(0)
         except Exception:
@@ -78,7 +78,8 @@ class StdOut(Output):
 class Tablepager(Output):
 
     '''
-    Display full result in table
+    Display full result in table. Needs to read all lines before tables can be
+    built
     '''
 
     def make_table(self, columns, data):

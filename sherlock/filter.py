@@ -30,12 +30,12 @@ class Filter(ABC):
 
     def __init__(self, **kwargs):
         '''
-        safe parser_results and arguments for processing
+        safe arguments for processing
         '''
         self.kwargs = kwargs
 
-    def run(self):
+    def run(self, line_d):
         '''
-        run filter against parser_results
+        run filter against line dictionary. must return boolean
         '''
         pass

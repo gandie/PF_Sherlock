@@ -35,8 +35,9 @@ python setup.py install
 ### Usage
 
 ```
-usage: pf_sherlock [-h] [-c CONFIG] [-f [{lh,kw} [{lh,kw} ...]]]
-                   [-a [ARGS [ARGS ...]]]
+usage: pf_sherlock [-h] [-c CONFIG] [-f [{uh,lh,kw} [{uh,lh,kw} ...]]]
+                   [-o [{simple,table,stdout}]] [-a [ARGS [ARGS ...]]]
+                   [--more-help]
 
 ---> A logfile analysis tool with super powers <---
   Intended to simplify logfile analysis tasks by aggregating logfiles
@@ -46,11 +47,15 @@ optional arguments:
   -h, --help            show this help message and exit
   -c CONFIG, --config CONFIG
                         Path to config file
-  -f [{lh,kw} [{lh,kw} ...]], --filter [{lh,kw} [{lh,kw} ...]]
+  -f [{uh,lh,kw} [{uh,lh,kw} ...]], --filter [{uh,lh,kw} [{uh,lh,kw} ...]]
                         List of filters to apply
+  -o [{simple,table,stdout}], --output [{simple,table,stdout}]
+                        Output to be used
   -a [ARGS [ARGS ...]], --args [ARGS [ARGS ...]]
                         List of filter arguments to apply. Must match filter
                         list order
+  --more-help           Get list of module variables in sherlock.py and what
+                        they are used for, then exit
 ```
 
 # Roadmap
