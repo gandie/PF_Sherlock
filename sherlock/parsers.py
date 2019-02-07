@@ -129,11 +129,12 @@ class Apache2_Access_Parser(Parser):
         except Exception:
             raise
 
+        import string
         assert dateobj, 'Unable to build date from %s' % datestring
         line_d = {
             'code': tokens[8],
             'datetime': dateobj,
-            'raw_line': line
+            'raw_line': ''.join(char for char in line if char in string.printable)
         }
         return line_d
 

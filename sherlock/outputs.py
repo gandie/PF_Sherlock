@@ -38,7 +38,7 @@ class SimplePager(Output):
     def write(self, line_d):
         '''take raw_line from line_d, write to and flush proc.stdin'''
         try:
-            self.proc.stdin.write(line_d['raw_line'].encode(encoding='utf_8'))
+            self.proc.stdin.write(line_d['raw_line'].encode(encoding='utf-8'))
             self.proc.stdin.flush()
         except BrokenPipeError:
             print('Pager closed.')
