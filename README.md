@@ -26,9 +26,12 @@ Check the examples to get an idea of what's possible.
 pf_sherlock --config /path/to/your/config.py
 ```
 
+Check example config: `tests/file_assets/example_config.py`
+
 ### Installation
 
 ```
+pip install -r requirements.txt
 python setup.py install
 ```
 
